@@ -1,6 +1,6 @@
 <h1>SQL problems & solutions</h1>
 
-<h4>#1. Tackling Error:</h4></br></br>
+<h4>#1. Tackling Error:</h4>
 
 <p>
 -> Faced issue while building the grail project using gradle where the following error is encountered: </br>
@@ -16,9 +16,7 @@
 
 
 
-
-
-<h4>#2. PostgreSQL </h4> </br>
+<h4>#2. PostgreSQL:</h4>
 After downloading the postgresql in linux through terminal the default user being created is "postgres" without any password </br>
 So to create password we can go to the the shell of postgres user by using the following process initially</br>
 

@@ -51,6 +51,8 @@
  		*** rolecreator with rolecreator ***
  		*** dbcreator with dbcreator ***
  		*** user1 with us4r1 ***
+ 		#NOTE : IT IS NOT MENDATORY TO DO SO BUT IN MY CASE SINCE I WAS PRACTICING WITH MULTIPLE USER, IT WAS EASIER TO KEEP TRACK OF!!
+ 		
  		
  		# however, if the the user or role being created was not given permission to login then after using the command
  		> psql <database_name> -U <username>

@@ -10,9 +10,11 @@ Faced issue while building the grail project using gradle where the following er
 <li>One such problem faced with selenium test suit with firefox driver is here : https://stackoverflow.com/questions/72405117/selenium-geckodriver-profile-missing-your-firefox-profile-cannot-be-loaded</li>
 <li>Hence use the debian apprach using the following guideline : https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 </li>
 </ul>
-***NOTE : IT MAY TAKE SOME TIME TO REMOVE FIREFOX FROM SNAP. ALSO THE REPOSITORY MIGHT NOT BE GONE FROM SNAP; SO LET IT STAY THEIR AFTER REMOVAL.***
-</br>
 
+***NOTE : IT MAY TAKE SOME TIME TO REMOVE FIREFOX FROM SNAP. ALSO THE REPOSITORY MIGHT NOT BE GONE FROM SNAP; SO LET IT STAY THEIR AFTER REMOVAL.***
+
+
+</br></br>
 
 
 

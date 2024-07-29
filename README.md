@@ -1,6 +1,6 @@
 <h1>BackEnd Technology and Database problems & solutions</h1>
 
-<h4>#1. Tackling Error:</h4>
+<h3>#1. Tackling Error:</h3>
 
 
 Faced issue while building the grail project using gradle where the following error is encountered: </br>
@@ -18,7 +18,7 @@ Faced issue while building the grail project using gradle where the following er
 
 
 
-<h4>#2. PostgreSQL:</h4>
+<h3>#2. PostgreSQL:</h3>
 After downloading the postgresql in linux through terminal the default user being created is "postgres" without any password </br>
 So to create password we can go to the the shell of postgres user by using the following process initially</br>
 

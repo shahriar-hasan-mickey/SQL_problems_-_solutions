@@ -4,9 +4,9 @@
 
 -> Faced issue while building the grail project using gradle where the following error is encountered: </br>
 Your Firefox profile cannot be loaded. It may be missing or inaccessible. </br>
-# It seems the the error was due to firefox being installed at default with snap. So the solution is to install firefox without snap. </br>
-# One such problem faced with selenium test suit with firefox driver is here : https://stackoverflow.com/questions/72405117/selenium-geckodriver-profile-missing-your-firefox-profile-cannot-be-loaded </br>
-# Hence use the debian apprach using the following guideline : https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 </br>
+It seems the the error was due to firefox being installed at default with snap. So the solution is to install firefox without snap. </br>
+One such problem faced with selenium test suit with firefox driver is here : https://stackoverflow.com/questions/72405117/selenium-geckodriver-profile-missing-your-firefox-profile-cannot-be-loaded </br>
+Hence use the debian apprach using the following guideline : https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 </br>
 ***NOTE: IT MAY TAKE SOME TIME TO REMOVE FIREFOX FROM SNAP. ALSO THE REPOSITORY MIGHT NOT BE GONE FROM SNAP; SO LET IT STAY THEIR AFTER REMOVAL.*** </br>
 
 
@@ -36,7 +36,7 @@ Moreover, here we can also change or add password to any user using the followin
 \password <username>
 ```
 
-then it will give prompt to provide the passwords (we can use the same process to add passwords to the initially generated user 'postgres' or any other users created later manually). </br>
+then it will give prompt to provide the passwords (we can use the same process to add passwords to the initially generated user 'postgres' or any other users created later manually). </br></br>
 However, this might not be directly usable since giving the following command in normal terminal : 
 
 ```
@@ -48,14 +48,14 @@ which will give rise to the following error :
 psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  Peer authentication failed for user "username"
 ```
 
-This will be mostly same for any user that is created if in the file 'pg_hba.conf' the METHOD for both users 'postgres' or any local user (referred to as 'all') is given 'peer'. </br>
+This will be mostly same for any user that is created if in the file 'pg_hba.conf' the METHOD for both users 'postgres' or any local user (referred to as 'all') is given 'peer'. </br></br>
 So we need to change the peer method to md5 by opening the file with any editor with sudo or root permission and then restart the postgresql server using the following commands:
 
 ```
  sudo systemctl restart postgresql
 ```
 
-This is done so that the new changes to the file can be loaded and implemented. </br>
+This is done so that the new changes to the file can be loaded and implemented. </br></br>
 Now using the command : 
 ```
 psql <database_name> -U <username>
@@ -72,7 +72,7 @@ The error is normal ; we can create the database using the following command:
 ```
 createdb <database_name> -U <usernae>
 ```
-# NOTE : if the user was not given permission to create database then the following error will be shown:
+***NOTE : if the user was not given permission to create database then the following error will be shown:***
 
 ```
 createdb: error: database creation failed: ERROR:  permission denied to create database
@@ -87,11 +87,11 @@ createdb: error: database creation failed: ERROR:  permission denied to create d
  
  This will select the provided database shell if already created. </br></br>
  		
- 		*** i have saved the password for postgres the same as my system password ***</br>
- 		*** rolecreator with rolecreator ***</br>
- 		*** dbcreator with dbcreator ***</br>
- 		*** user1 with us4r1 ***</br>
-#NOTE : IT IS NOT MENDATORY TO DO SO BUT IN MY CASE SINCE I WAS PRACTICING WITH MULTIPLE USER, IT WAS EASIER TO KEEP TRACK OF!!</br>
+ 		*** i have saved the password for postgres the same as my system password ***
+ 		*** rolecreator with rolecreator ***
+ 		*** dbcreator with dbcreator ***
+ 		*** user1 with us4r1 ***
+***NOTE : IT IS NOT MENDATORY TO DO SO BUT IN MY CASE SINCE I WAS PRACTICING WITH MULTIPLE USER, IT WAS EASIER TO KEEP TRACK OF!!</br>***
  		
  		
 However, if the the user or role being created was not given permission to login then after using the command:

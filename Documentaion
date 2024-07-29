@@ -1,0 +1,75 @@
+#1. Tackling Error:
+
+-> Faced issue while building the grail project using gradle but gets the following error:
+	Your Firefox profile cannot be loaded. It may be missing or inaccessible.
+	# It seems the the error was due to firefox being installed at default with snap. So the solution is to install firefox without snap.
+	# One such problem faced with selenium test suit with firefox driver is here : https://stackoverflow.com/questions/72405117/selenium-geckodriver-profile-missing-your-firefox-profile-cannot-be-loaded
+	# Hence use the debian apprach using the following guideline : https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
+		***NOTE: IT MAY TAKE SOME TIME TO REMOVE FIREFOX FROM SNAP. ALSO THE REPOSITORY MIGHT NOT BE GONE FROM SNAP; SO LET IT STAY THEIR AFTER REMOVAL.***
+
+
+
+
+
+#2. PostgreSQL
+-> After downloading the postgresql in linux through terminal the default user being created is "postgres" without any password
+-> So to create password we can go to the postgresql prompt by using the following process initially
+	> sudo -i -u postgres
+	# then give the system password
+	# this will give rise to a shell which is of the user postgres. There type the following
+	> psql
+	# this will provide postgresql shell
+	# here we can create new roles / users initially following the official document : https://www.postgresql.org/docs/14/role-attributes.html
+
+	# here we can also change or add password to any user using the following commands:
+	> \password <username>
+	# then it will give prompt to provide the passwords (we can use the same process to add passwords to the initially generated user 'postgres' or any other users created later manually)
+	# however, this might not be directly usable since giving the following command in normal terminal : psql <database_name> -U username
+		# will give rise to the following error : 
+			psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  Peer authentication failed for user "username"
+		# this will be mostly same for any user that is created if in the file 'pg_hba.conf' the METHOD for both users 'postgres' or any local user (referred to as 'all') is given 'peer'
+		# so we need to change the peer method to md5 by opening the file with any editor with sudo or root permission
+		# and then restart the postgresql server using the following commands:
+		> sudo systemctl restart postgresql
+		# this is cause the new changes to the file to be loaded and implemented.
+		# now using the command : 
+		>psql <database_name> -U <username>
+		# will ask for that users prompt without giving peer authentication failour but
+		# will give rise to the following error if the database was not created earlier:
+			psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "postgresProject1" does not exist
+ 		# this is normal ; we can create the database using the following command: 
+ 		> createdb <database_name> -U <usernae>
+ 			# NOTE : if the user was not given permission to create database then the following error will be shown:
+ 				createdb: error: database creation failed: ERROR:  permission denied to create database
+
+ 		
+ 		# we can also access the postgre sql shell using the following command now if the user is created and is allowed to login :
+ 		> psql <database_name> -U <username>
+ 		# this will select the provided database shell if already created
+ 		
+ 		*** i have saved the password for postgres the same as my system password ***
+ 		*** rolecreator with rolecreator ***
+ 		*** dbcreator with dbcreator ***
+ 		*** user1 with us4r1 ***
+ 		
+ 		# however, if the the user or role being created was not given permission to login then after using the command
+ 		> psql <database_name> -U <username>
+ 		# it will ask for the password. And on providing the password it will give the following error:
+ 			psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "dbcreator" is not permitted to log in
+ 		# While trying to create user if the user trying to create another user does not have permission to create role then the following error arises while running the following command:
+ 		> createuser <new_username> -U <username>
+ 			createuser: error: creation of new role failed: ERROR:  permission denied to create role
+ 		# but if the user has permission to create another user but do not have the permission to login then the following error arises:
+ 			createuser: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "rolecreator" is not permitted to log in
+ 			
+ 		# Login permission can be given to a user by the following command on the postgresql shell:
+ 		> ALTER ROLE dbcreator  WITH LOGIN;
+ 		# other permissions can be given with similar statements.
+ 		
+ 		# the following command can be used at the postgresql shell to see the role names and their permissions:
+ 		>\du
+ 		# a detailed view can be seen using the following command:
+ 		>SELECT * FROM pg_roles;
+ 		
+ 		
+ 		

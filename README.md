@@ -157,4 +157,4 @@ GRANT command is used to assign privileges, while REVOKE command is used to revo
 <li>REVOKE relalted documentation : https://www.postgresql.org/docs/14/sql-revoke.html</li>
 
 </ul>
- 		
+ 		  

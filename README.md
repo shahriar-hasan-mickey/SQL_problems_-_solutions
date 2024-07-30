@@ -91,6 +91,7 @@ createdb: error: database creation failed: ERROR:  permission denied to create d
  
  This will select the provided database shell if already created. </br></br>
  		
+ I used the following strategy of username:password for the sake of practice:
  		*** i have saved the password for postgres the same as my system password ***
  		*** rolecreator with rolecreator ***
  		*** dbcreator with dbcreator ***
@@ -133,4 +134,11 @@ Also, a detailed view can be seen using the following command:
 SELECT * FROM pg_roles;
 ```
 
+
+GRANT command is used to assign privileges, while REVOKE command is used to revoke or remove privileges of user/role from object. </br>
+<ul>
+<li>GRANT related documentation : https://www.postgresql.org/docs/14/ddl-priv.html</li>
+<li>REVOKE relalted documentation : https://www.postgresql.org/docs/14/sql-revoke.html</li>
+
+</ul>
  		

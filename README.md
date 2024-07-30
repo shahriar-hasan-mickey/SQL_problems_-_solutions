@@ -137,7 +137,8 @@ SELECT * FROM pg_roles;
 
 GRANT command is used to assign privileges, while REVOKE command is used to revoke or remove privileges of user/role from object. </br>
 <ul>
-<li>GRANT related documentation : https://www.postgresql.org/docs/14/ddl-priv.html</li>
+<li>privilege related documantion : https://www.postgresql.org/docs/14/ddl-priv.html</li>
+<li>GRANT related documentation : https://www.postgresql.org/docs/14/sql-grant.html</li>
 <li>REVOKE relalted documentation : https://www.postgresql.org/docs/14/sql-revoke.html</li>
 
 </ul>

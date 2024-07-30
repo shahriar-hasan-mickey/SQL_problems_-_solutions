@@ -126,20 +126,6 @@ CREATE ROLE <user_name> CREATEDB
 ```
  		
  			
-Login permission can be given to a user by the following command on the postgresql shell:
-```
-ALTER ROLE dbcreator  WITH LOGIN;
-```
-Other permissions can be given with similar statements. </br>
- 		
-The following command can be used at the postgresql shell to see the role names and their permissions:
-```
-\du
-```
-Also, a detailed view can be seen using the following command:
-```
-SELECT * FROM pg_roles;
-```
 
 Attributes to roles can be modified using the ALTER command so that different permissions are given to the roles as well as the given permissions are removed from the roles. Following link has some useful easy-to-use examples shown: https://www.prisma.io/dataguide/postgresql/authentication-and-authorization/role-management.</br>
 Some example usage are as follows:
@@ -147,6 +133,21 @@ Some example usage are as follows:
 ALTER ROLE <user_name> WITH <privilege1> <privilege2> ...;
 e.g.  ALTER ROLE <user_name> WITH CREATEROLE CREATEDB;
 e.g.  ALTER ROLE <user_name> WITH NOLOGIN;
+```
+Login permission can be given to a user by the following command on the postgresql shell:
+```
+ALTER ROLE dbcreator  WITH LOGIN;
+```
+Other permissions can be given with similar statements. </br>
+
+
+The following command can be used at the postgresql shell to see the role names and their permissions:
+```
+\du
+```
+Also, a detailed view can be seen using the following command:
+```
+SELECT * FROM pg_roles;
 ```
 
 
